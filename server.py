@@ -1,3 +1,4 @@
+import os
 import socket
 from tqdm import tqdm
 
@@ -20,4 +21,39 @@ def main():
 
     conn, address = server.accept()
     print(f"Client connected from {address[0]}:{address[1]} ")
+
+    data  = conn.recv(size).decode(format)
+    print(data)
+
+    item = data.split("_") #To retrieve file name and file size from the data received
+    filename = item[0]
+    filesize = item[1]
+
+    conn.send("Filename and file size received".encode(format))
+
+    #progress = tqdm(range(filesize), f"Receiving {filename}", unit = "B", unit_scale = True, unit_divisor = filesize )
+
+
+    f = open(f"recv_{filename}","w")
+
+    while True:
+        data = conn.recv(size).decode(format)
+
+        if not data:
+            break
+
+        f.write(data)
+        conn.send("data received".encode(format))
+
+        #progress.update(len(data))
     
+    
+    conn.close()
+    server.close()
+    f.close()
+
+if __name__ == "__main__":
+    main()
+
+
+
