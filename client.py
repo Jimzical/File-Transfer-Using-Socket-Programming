@@ -2,7 +2,8 @@ import os
 import socket
 from tqdm import tqdm
 
-ip = socket.gethostbyname(socket.gethostname()) #To get IP address of the local host
+ip = "192.168.56.56"
+# ip = socket.gethostbyname(socket.gethostname()) #To get IP address of the local host
 port = 4455
 addr = (ip, port)
 size = 1024
