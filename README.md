@@ -2,10 +2,10 @@
 
 This is a simple file transfer system using socket programming created in Python.
 
-#Language Used:
+# Language Used:
   Python
   
-#Libraries Used:
+# Libraries Used:
   1. socket
   2. tqdm
   3. os 
