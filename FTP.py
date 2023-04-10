@@ -2,7 +2,6 @@ import os
 import socket
 import re
 import json
-from server import InitializeServer
 def InitializeClient(ip,filename = "file.txt",port = 4455,size = 1024,format = "utf-8"):
     '''
     This function is used to create a client socket and connect to the server
